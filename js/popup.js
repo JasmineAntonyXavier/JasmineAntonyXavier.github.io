@@ -8,8 +8,10 @@ function clicking(e) {
     var dragEnd = allCells.index($(this));
     start = Math.floor(dragEnd / 48);
     var startTime = dragEnd % 48;
-    document.getElementById("startday").selectedIndex = start;;
+    document.getElementById("startday").selectedIndex = start;
     document.getElementById("starttime").selectedIndex = startTime;
+    document.getElementById("endday").selectedIndex = start;
+    document.getElementById("endtime").selectedIndex = startTime+1;
     $('#popup').dialog('open');
 
     $(".time").eq(dragEnd).find(':checkbox').prop('checked', false);
@@ -31,7 +33,7 @@ function getdata() {
     var checkboxtostart = 48 * startday + starttime;
     var checkboxtostop = 48 * endday + endtime;
 
-    for (var i = checkboxtostart; i <= checkboxtostop ; i++) {
+    for (var i = checkboxtostart; i < checkboxtostop ; i++) {
         $(".time").eq(i).find(':checkbox').prop('checked', true);
     }
     //StartDay 0 = sunday
