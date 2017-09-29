@@ -4,8 +4,17 @@
 
 
 function clicking(e) {
+    var allCells = $(".time");
+    var dragEnd = allCells.index($(this));
+    start = Math.floor(dragEnd / 48);
+    var startTime = dragEnd % 48;
+    document.getElementById("startday").selectedIndex = start;;
+    document.getElementById("starttime").selectedIndex = startTime;
     $('#popup').dialog('open');
+
+    $(".time").eq(dragEnd).find(':checkbox').prop('checked', false);
 }
+
 function getdata() {
 
     //0 - sunday
@@ -15,7 +24,6 @@ function getdata() {
     var starttime = document.getElementById("starttime").selectedIndex;
     var endday = document.getElementById("endday").selectedIndex;
     var endtime = document.getElementById("endtime").selectedIndex;
-    var allCells = $(".time");
 
     //each day = 0 to 6
     //Time 0 to 
