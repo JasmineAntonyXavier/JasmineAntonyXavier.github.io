@@ -122,9 +122,9 @@ input[type=text] {
 
 button {
 	border: 0;
-	background-color: #448;
+	background-color:black;
 	cursor: pointer;
-	color: #fff;
+	color: whitesmoke;
 	font-size: 1em;
 	padding: 7px 5% 10px;
 	line-height: 1.5;
@@ -133,7 +133,7 @@ button {
 }
 
 h1 {
-	font-size: 0;
+	font-size: 25%;
 }
 
 h2 {
@@ -382,3 +382,6 @@ span {
 .box-title {
 	font-size: 1.5em;
 }
+
+
+

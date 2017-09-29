@@ -1,0 +1,11 @@
+﻿.popup > *{
+    font-size:12px;
+    margin-bottom:15px;
+}
+.popup > p > label{
+    display:block;
+    font-size:18px;
+}
+.popup > p > input, #popup > p > textarea{
+        width:300px;
+}
