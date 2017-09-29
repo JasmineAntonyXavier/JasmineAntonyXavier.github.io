@@ -6,3 +6,4 @@ function check() {
     else document.getElementById('ifYes').style.visibility = 'hidden';
 
 }
+
