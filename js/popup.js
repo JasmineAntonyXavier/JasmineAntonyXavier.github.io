@@ -1,23 +1,24 @@
-﻿$(function () {
+﻿$(function () { //when the checkbox is clicked, this function callthe clicking function
     $('.checkbox').click(clicking)
 });
 
 
 function clicking(e) {
-    var allCells = $(".time");
-    var dragEnd = allCells.index($(this));
-    start = Math.floor(dragEnd / 48);
-    var startTime = dragEnd % 48;
+    var allCells = $(".time");  
+    var thisIndex = allCells.index($(this));
+    start = Math.floor(thisIndex / 48);
+    var startTime = thisIndex % 48;
     document.getElementById("startday").selectedIndex = start;
     document.getElementById("starttime").selectedIndex = startTime;
     document.getElementById("endday").selectedIndex = start;
     document.getElementById("endtime").selectedIndex = startTime+1;
     $('#popup').dialog('open');
 
-    $(".time").eq(dragEnd).find(':checkbox').prop('checked', false);
+
+    $(".time").eq(thisIndex).find(':checkbox').prop('checked', false);
 }
 
-function getdata() {
+function getFormData() {
 
     //0 - sunday
     //1 - monday
@@ -42,9 +43,12 @@ function getdata() {
 }
 
 $(document).ready(function () {
+
     $('#popup').dialog({
+        dialogClass: 'ui-dialog ',
         autoOpen: false,
-        height: 375,
+        resizable: false,
+        height: 300,
         width: 350,
         modal: true,
         buttons: [
@@ -58,7 +62,7 @@ $(document).ready(function () {
             text: "Submit",
             click: function () {
                 $('#popup').dialog('close');
-                getdata();
+                getFormData();
             }
         }
         ]
